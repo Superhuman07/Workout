@@ -13,7 +13,7 @@ public static final String EXTRA_WORKOUT_ID = "id";
         setContentView(R.layout.activity_detail);
 
         WorkoutDetailFragment workoutDetailFragment = (WorkoutDetailFragment)
-                getFragmentManager().findFragmentById(R.id.detail_frag);
+                getSupportFragmentManager().findFragmentById(R.id.detail_frag);
         int workoutId = (int) getIntent().getExtras().get(EXTRA_WORKOUT_ID);
         workoutDetailFragment.setWorkout(workoutId);
 

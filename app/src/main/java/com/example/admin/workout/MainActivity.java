@@ -1,12 +1,12 @@
 package com.example.admin.workout;
 
-import android.app.Activity;
-import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.FragmentTransaction;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
-public class MainActivity extends Activity implements WorkoutListFragment.WorkoutListener {
+public class MainActivity extends AppCompatActivity implements WorkoutListFragment.WorkoutListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,11 +20,11 @@ public class MainActivity extends Activity implements WorkoutListFragment.Workou
         View fragmentContainer = findViewById(R.id.fragment_container);
         if (fragmentContainer != null) {
             WorkoutDetailFragment details = new WorkoutDetailFragment();
-            FragmentTransaction ft = getFragmentManager().beginTransaction();
+            FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
             details.setWorkout(id);
             ft.replace(R.id.fragment_container, details);
             ft.addToBackStack(null);
-            ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
+            ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
             ft.commit();
         }
         else {
